@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class zh {
     public static void main(String[] args) {
         elso();
-        //masodik();
-        //harmadik();
+        masodik();
+        harmadik();
     }
 
     public static void elso() {
@@ -123,6 +123,10 @@ class PositionChanges extends Team {
         pos = in.nextLine();
         System.out.println("Hányadik csapattagot kell előléptetni?");
         index = in.nextInt();
-        position.set(index-1, pos);
+        try {
+            position.set(index-1, pos);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Nincs ilyen csapattag");
+        }
     }
 }
