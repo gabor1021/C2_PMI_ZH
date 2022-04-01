@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -73,7 +72,7 @@ class Matrix {
             for (int j = 0; j < 3; j++) {
                 if (matrix2[i][j]!=temp)same=false;
             }
-            if (same==true){
+            if (same){
                 same=false;
                 a=a+i+", ";
             }
