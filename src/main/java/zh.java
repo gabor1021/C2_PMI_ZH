@@ -4,15 +4,16 @@ import java.util.Scanner;
 
 public class zh {
     public static void main(String[] args) {
-        //elso();
+        elso();
         //masodik();
-        harmadik();
+        //harmadik();
     }
 
     public static void elso() {
         Matrix elso = new Matrix();
         elso.feltolt(); //3x3 mátrix feltöltése billentyűzetről (soronként haladva)
-        System.out.println("Nem 0 értékeket száma: " + elso.numberOfNonZeroValues());
+        System.out.println("Nem 0 értékek száma: " + elso.numberOfNonZeroValues());
+        System.out.println("Azonos értékeket tartalmazó oszlopok indexe:");
         elso.indexOfColumnsWithSameValues();
     }
 
@@ -58,17 +59,26 @@ class Matrix {
     }
 
     public void indexOfColumnsWithSameValues() {
-        int temp;
-        for (int i = 0, j = 0; i < 3; i++) {
-            temp = matrix[i][j];
-            while (temp == matrix[i][j] && i < 2) {
-                i++;
+        int[][] matrix2=new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matrix2[j][i] = matrix[i][j];
             }
-            if (i != 2) {
-                j++;
-                i = 0;
-            } else System.out.println("Azonos értékeket tartalmazó oszlop indexe: " + j);
         }
+        int temp;
+        boolean same=true;
+        String a="";
+        for (int i = 0; i < 3; i++) {
+            temp=matrix2[i][0];
+            for (int j = 0; j < 3; j++) {
+                if (matrix2[i][j]!=temp)same=false;
+            }
+            if (same==true){
+                same=false;
+                a=a+i+", ";
+            }
+        }
+        System.out.println(a);
     }
 }
 
